@@ -15,26 +15,59 @@ public class Archivo implements IElemento{
 
     @Override
     public String nombre() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'nombre'");
+        return nombre + "." + extension;
     }
-
     @Override
     public Integer tamanio() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'tamanio'");
+      return tamanio;
     }
 
     @Override
     public void mostrar(Integer identacion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mostrar'");
+       System.out.println("".repeat(identacion) + "-" + this.nombre());
     }
 
     @Override
     public IElemento archivoMasPesado() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'archivoMasPesado'");
+        return this;
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+        result = prime * result + ((tamanio == null) ? 0 : tamanio.hashCode());
+        result = prime * result + ((extension == null) ? 0 : extension.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Archivo other = (Archivo) obj;
+        if (nombre == null) {
+            if (other.nombre != null)
+                return false;
+        } else if (!nombre.equals(other.nombre))
+            return false;
+        if (tamanio == null) {
+            if (other.tamanio != null)
+                return false;
+        } else if (!tamanio.equals(other.tamanio))
+            return false;
+        if (extension == null) {
+            if (other.extension != null)
+                return false;
+        } else if (!extension.equals(other.extension))
+            return false;
+        return true;
+    }
+    
 
 }
