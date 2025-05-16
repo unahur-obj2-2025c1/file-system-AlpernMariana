@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Carpeta implements IElemento{
-    private List<IElemento> elementos = new ArrayList<>();
+    private List<IElemento> elementos = new ArrayList<>(); /* */
     private String nombre;
 
     public Carpeta(String nombre){
@@ -21,19 +21,20 @@ public class Carpeta implements IElemento{
     }
     @Override
     public Integer tamanio() {
-        return elementos.stream().mapToInt(elemento -> elemento.tamanio()).sum();
+        return elementos.stream().mapToInt(elemento -> elemento.tamanio()).sum(); /*recursividad! elemento
+                                                                                  se llama a sí mismo */
     }
     @Override
     public void mostrar(Integer identacion) {
-        System.out.println("".repeat(identacion) + " └" + nombre + " (" + this.tamanio() + "-Bytes) ");
+        System.out.println(" ".repeat(identacion) + "└ " + nombre + " ( " + this.tamanio() + "-Bytes) ");
         elementos.stream().forEach(e -> e.mostrar(identacion + 3));
     }
     @Override
     public IElemento archivoMasPesado() {
         return elementos.stream().map(elemento -> elemento.archivoMasPesado())
         .max(
-          Comparator.comparingInt(elemento -> elemento.tamanio())
-        ).orElseThrow();
+          Comparator.comparingInt(elemento -> elemento.tamanio()) /*metodo comparator - quiero q me */
+        ).orElseThrow();                                          /*devuelva el mas pesado o que devuelva una excepcion */
     }
 
 }

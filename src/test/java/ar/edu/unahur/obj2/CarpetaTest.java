@@ -38,7 +38,7 @@ public class CarpetaTest {
        root.agregar(video);
 
        assertEquals(img, root.archivoMasPesado());
-       assertTrue(img.tamanio().equals(600));
+       assertTrue(img.tamanio().equals(600)); 
        assertEquals("Foto1.jpg", img.nombre());
        
   }   

@@ -24,7 +24,7 @@ public class Archivo implements IElemento{
 
     @Override
     public void mostrar(Integer identacion) {
-       System.out.println("".repeat(identacion) + "-" + this.nombre());
+       System.out.println(" ".repeat(identacion) + "├ " + this.nombre());
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Archivo implements IElemento{
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() {    /* */
         final int prime = 31;
         int result = 1;
         result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
@@ -43,7 +43,7 @@ public class Archivo implements IElemento{
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj) {        /*definicion metodo equals para saber si dos archivos son dif */
         if (this == obj)
             return true;
         if (obj == null)
